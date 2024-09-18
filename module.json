@@ -1,0 +1,67 @@
+{
+  "name": "L-Acoustics Amplifier (HTTP)",
+  "type": "HTTP",
+  "path": "Hardware",
+
+  "version": "0.0.1",
+  "description": "Control L-Acoustics amplifiers with firware >= 2.13.0",
+  "url": "https://github.com/DonGuig/L-Acoustics-Amps-HTTP-Chataigne-module",
+  "downloadURL": "https://github.com/DonGuig/L-Acoustics-Amps-HTTP-Chataigne-module/archive/master.zip",
+
+  "hasInput": true,
+  "hasOutput": true,
+  "hideDefaultCommands": false,
+
+  "defaults": {
+    "autoAdd": false,
+    "timeout": false,
+    "protocol": "JSON"
+  },
+
+  "parameters": {"Ip address":     {
+    "type":"String",
+    "default":"0.0.0.0",
+    "description":"IP address of the amplifier."
+  }},
+
+  "hideDefaultParameters": [
+    "baseAddress",
+    "protocol",
+    "autoAdd",
+    "timeout",
+    "authentication",
+    "authentication/username",
+    "authentication/password",
+    "clearValues"
+  ],
+
+  "scripts": ["moduleScript.js"],
+
+  "values": {
+    "Power On": {
+      "type": "Trigger"
+    },
+    "Standby": {
+      "type": "Trigger"
+    },
+    "Standby Status":{
+      "type": "Boolean",
+      "readOnly":"true"
+    }
+  },
+
+  "commands": {
+    "Power On": {
+      "menu": "",
+      "callback": "powerOn"
+    },
+    "Standby": {
+      "menu": "",
+      "callback": "standby"
+    },
+    "Request power status": {
+      "menu": "",
+      "callback": "request"
+    }
+  }
+}
